@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExemplosPipesComponent implements OnInit {
 
+  filtro: string;
+
   livro: any = {
     titulo: "Learning Javascript",
     rating: 4.5321,
@@ -16,9 +18,15 @@ export class ExemplosPipesComponent implements OnInit {
     url: "http://localhost:4200/"
   }
 
+  livros: string[] = ['Angular 2', 'Java', 'Erlang'];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onChange(value: string) {
+    this.filtro = value;
   }
 
 }

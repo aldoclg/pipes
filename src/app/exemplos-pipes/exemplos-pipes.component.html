@@ -3,8 +3,19 @@
 <p>Titulo     {{ livro.titulo | uppercase | camelCase }}</p>
 <p>Rating     {{ livro.rating | number:'1.1-2' }}</p>
 <p>Paginas    {{ livro.paginas | number }}</p>
-<p>Preco      {{ livro.preco | currency:'BRL':true }}</p>
-<p>Lancamento {{ livro.dataLancamento | date:'dd-MM-yyyy' }}</p>
+<p>Preco      {{ livro.preco | currency }}</p>
+<p>Lancamento {{ livro.dataLancamento | date }}</p>
 <p>Link <a href="{{ livro.url }}">{{ livro.url }}</a></p>
 <br>
 <p>{{ livro | json }}</p>
+
+<br>
+<input  type="text" (change)="onChage(inputFilter.value)" #inputFilter>
+<br>
+<ul>
+	<li *ngFor="let livro of livros | filtroArray:filtro">{{ livro }}</li>
+</ul>
+<br>
+<ul>
+	<li *ngFor="let livro of livros | filtroArrayImpuro:filtro">{{ livro }}</li>
+</ul>
